@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+@import 'tailwindcss';
+
+html, body, #root {
+  height: 100%;
+  background: #09090f;
+}
+
+:root {
+  --bg: #09090f;
+  --bg-2: #0f0f1a;
+  --card: #13131e;
+  --card-2: #1a1a28;
+  --border: rgba(255,255,255,0.07);
+  --border-purple: rgba(139,92,246,0.35);
+  --primary: #8b5cf6;
+  --primary-bright: #a78bfa;
+  --primary-glow: rgba(139,92,246,0.25);
+  --secondary: #ec4899;
+  --cyan: #06b6d4;
+  --green: #10b981;
+  --yellow: #f59e0b;
+  --red: #ef4444;
+  --text: #f0eeff;
+  --text-2: #a09ab8;
+  --text-3: #5c5778;
+  --mono: 'IBM Plex Mono', monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(139,92,246,0.3); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(139,92,246,0.5); }
+
+/* Glassmorphism */
+.glass {
+  background: rgba(19,19,30,0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+}
+
+/* Neon glow */
+.glow-purple {
+  box-shadow: 0 0 20px var(--primary-glow), 0 0 60px rgba(139,92,246,0.1);
+}
+
+.glow-green {
+  box-shadow: 0 0 20px rgba(16,185,129,0.3), 0 0 60px rgba(16,185,129,0.1);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #a78bfa 0%, #ec4899 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Animations */
+@keyframes ping {
+  0% { transform: scale(1); opacity: 0.4; }
+  75%, 100% { transform: scale(1.8); opacity: 0; }
+}
+
+/* Horizontal scroll container */
+.scroll-x {
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.scroll-x::-webkit-scrollbar { display: none; }
+
+/* Purple button */
+.btn-primary {
+  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+  color: #fff;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  border-radius: 10px;
+  transition: all 0.2s;
+  border: 1px solid rgba(139,92,246,0.4);
+}
+.btn-primary:hover {
+  background: linear-gradient(135deg, #a78bfa, #8b5cf6);
+  box-shadow: 0 0 24px rgba(139,92,246,0.4);
+  transform: translateY(-1px);
+}
+
+/* Card base */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+.card-hover {
+  transition: all 0.25s;
+}
+.card-hover:hover {
+  border-color: var(--border-purple);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 0 0 1px rgba(139,92,246,0.15);
+  transform: translateY(-2px);
+}
+
+/* Status badges */
+.badge-open { background: rgba(16,185,129,0.15); color: #10b981; border: 1px solid rgba(16,185,129,0.3); }
+.badge-booked { background: rgba(239,68,68,0.15); color: #ef4444; border: 1px solid rgba(239,68,68,0.3); }
+.badge-maintenance { background: rgba(245,158,11,0.15); color: #f59e0b; border: 1px solid rgba(245,158,11,0.3); }
+.badge-upcoming { background: rgba(139,92,246,0.15); color: #a78bfa; border: 1px solid rgba(139,92,246,0.3); }
+.badge-popular { background: linear-gradient(135deg, rgba(139,92,246,0.8), rgba(236,72,153,0.8)); color: #fff; }
+
+/* Station card */
+.station-open { border-color: rgba(16,185,129,0.3); background: rgba(16,185,129,0.05); }
+.station-open:hover { border-color: rgba(16,185,129,0.6); background: rgba(16,185,129,0.1); cursor: pointer; }
+.station-booked { border-color: rgba(239,68,68,0.3); background: rgba(239,68,68,0.05); opacity: 0.7; }
+.station-maintenance { border-color: rgba(245,158,11,0.3); background: rgba(245,158,11,0.05); opacity: 0.7; }
+.station-selected { border-color: #8b5cf6 !important; background: rgba(139,92,246,0.15) !important; box-shadow: 0 0 16px rgba(139,92,246,0.4) !important; }
+
+.figma-custom-code-fragment { display: contents; }
+.figma-bypass-link {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 2147483647;
+  transform: translateY(-150%);
+  border-radius: 6px;
+  background: #111827;
+  color: #fff;
+  padding: 8px 12px;
+  font: 600 14px/1.2 system-ui, sans-serif;
+  text-decoration: none;
+}
+.figma-bypass-link:focus { transform: translateY(0); }
